@@ -281,3 +281,127 @@ body {
 .app__clear:hover {
   color: var(--danger);
 }
+
+/* ===== Giriş / Kayıt ekranı ===== */
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth__input {
+  background: var(--card-2);
+  border: 1px solid transparent;
+  color: var(--text);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  color-scheme: dark;
+}
+
+.auth__input::placeholder {
+  color: var(--muted);
+}
+
+.auth__input:focus {
+  border-color: var(--accent);
+}
+
+.auth__btn {
+  margin-top: 4px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.auth__btn:hover {
+  background: var(--accent-hover);
+}
+
+.auth__btn:active {
+  transform: scale(0.99);
+}
+
+.auth__btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.auth__switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.auth__switch a {
+  color: var(--accent-hover);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.auth__switch a:hover {
+  text-decoration: underline;
+}
+
+.auth__msg {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  text-align: center;
+  min-height: 1px;
+}
+
+.auth__msg--ok {
+  color: #22c55e;
+}
+
+.auth__msg--error {
+  color: var(--danger);
+}
+
+/* ===== Kullanıcı çubuğu ===== */
+.userbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--card-2);
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+
+.userbar__email {
+  font-size: 13px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.userbar__logout {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.userbar__logout:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}

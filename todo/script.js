@@ -8,8 +8,22 @@ const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // ---- Durum (state) ----
 let todos = [];
 let filter = "all"; // all | active | done
+let authMode = "login"; // login | signup
 
-// ---- DOM ----
+// ---- DOM: Auth ----
+const authView = document.getElementById("auth-view");
+const appView = document.getElementById("app-view");
+const authForm = document.getElementById("auth-form");
+const authEmail = document.getElementById("auth-email");
+const authPassword = document.getElementById("auth-password");
+const authSubmit = document.getElementById("auth-submit");
+const authToggle = document.getElementById("auth-toggle");
+const authSwitchText = document.getElementById("auth-switch-text");
+const authMsg = document.getElementById("auth-msg");
+const userEmail = document.getElementById("user-email");
+const logoutBtn = document.getElementById("logout");
+
+// ---- DOM: Todo ----
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
 const dateInput = document.getElementById("todo-date");
@@ -19,15 +33,114 @@ const countEl = document.getElementById("count");
 const clearBtn = document.getElementById("clear-done");
 const dateEl = document.getElementById("date");
 
-// ---- Yardımcılar ----
+// =====================================================================
+//  KİMLİK DOĞRULAMA
+// =====================================================================
+function setAuthMode(mode) {
+  authMode = mode;
+  if (mode === "signup") {
+    authSubmit.textContent = "Kaydol";
+    authSwitchText.textContent = "Zaten hesabın var mı?";
+    authToggle.textContent = "Giriş yap";
+    authPassword.setAttribute("autocomplete", "new-password");
+  } else {
+    authSubmit.textContent = "Giriş yap";
+    authSwitchText.textContent = "Hesabın yok mu?";
+    authToggle.textContent = "Kaydol";
+    authPassword.setAttribute("autocomplete", "current-password");
+  }
+  showMsg("");
+}
+
+function showMsg(text, kind) {
+  authMsg.textContent = text;
+  authMsg.className = "auth__msg" + (kind ? " auth__msg--" + kind : "");
+}
+
+function translateAuthError(error) {
+  const m = (error && error.message) || "Bir hata oluştu.";
+  if (/Email not confirmed/i.test(m))
+    return "E-postan henüz onaylı değil. Lütfen gelen kutundaki onay linkine tıkla.";
+  if (/Invalid login credentials/i.test(m)) return "E-posta veya şifre hatalı.";
+  if (/already registered/i.test(m))
+    return "Bu e-posta zaten kayıtlı. Giriş yapmayı dene.";
+  if (/Password should be at least/i.test(m)) return "Şifre en az 6 karakter olmalı.";
+  if (/rate limit|too many|after \d+ seconds/i.test(m))
+    return "Çok fazla deneme oldu. Lütfen biraz sonra tekrar dene.";
+  if (/valid email/i.test(m)) return "Geçerli bir e-posta adresi gir.";
+  return m;
+}
+
+authToggle.addEventListener("click", (e) => {
+  e.preventDefault();
+  setAuthMode(authMode === "login" ? "signup" : "login");
+});
+
+authForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = authEmail.value.trim();
+  const password = authPassword.value;
+  if (!email || !password) return;
+
+  authSubmit.disabled = true;
+  showMsg("Lütfen bekleyin…");
+  try {
+    if (authMode === "signup") {
+      const { error } = await db.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: window.location.origin + window.location.pathname,
+        },
+      });
+      if (error) return showMsg(translateAuthError(error), "error");
+      setAuthMode("login");
+      showMsg(
+        "✅ Onay e-postası " +
+          email +
+          " adresine gönderildi. Linke tıklayıp onayladıktan sonra giriş yapabilirsin.",
+        "ok"
+      );
+    } else {
+      const { error } = await db.auth.signInWithPassword({ email, password });
+      if (error) return showMsg(translateAuthError(error), "error");
+      // Başarılı giriş → onAuthStateChange uygulamayı gösterir.
+    }
+  } finally {
+    authSubmit.disabled = false;
+  }
+});
+
+logoutBtn.addEventListener("click", async () => {
+  await db.auth.signOut();
+});
+
+// Oturum değişikliklerini dinle (ilk yükleme + giriş/çıkış + e-posta onay dönüşü)
+db.auth.onAuthStateChange((_event, session) => applySession(session));
+
+function applySession(session) {
+  if (session && session.user) {
+    authView.hidden = true;
+    appView.hidden = false;
+    userEmail.textContent = session.user.email;
+    authForm.reset();
+    load();
+  } else {
+    appView.hidden = true;
+    authView.hidden = false;
+    todos = [];
+  }
+}
+
+// =====================================================================
+//  GÖREVLER (her kullanıcı yalnızca kendi kayıtlarını görür — RLS)
+// =====================================================================
 function getFiltered() {
   let result;
   if (filter === "active") result = todos.filter((t) => !t.done);
   else if (filter === "done") result = todos.filter((t) => t.done);
   else result = todos.slice();
 
-  // Yapılacağı tarihe göre eskiden yeniye sırala (tarihsizler en sona,
-  // kendi aralarında en son eklenen üstte)
   return result.sort((a, b) => {
     if (!a.due && !b.due)
       return (b.inserted_at || "").localeCompare(a.inserted_at || "");
@@ -58,7 +171,6 @@ function isToday(iso) {
   return new Date(iso + "T00:00:00").getTime() === today.getTime();
 }
 
-// ---- Render ----
 function render() {
   const items = getFiltered();
   list.innerHTML = "";
@@ -132,6 +244,7 @@ async function load() {
 }
 
 async function addTodo(text, due) {
+  // user_id'yi DB otomatik atar (default auth.uid()).
   const { error } = await db.from("todos").insert({ text, due: due || null });
   if (error) return fail("Eklenemedi", error);
   await load();
@@ -193,4 +306,4 @@ dateEl.textContent = new Date().toLocaleDateString("tr-TR", {
 });
 
 // ---- Başlat ----
-load();
+setAuthMode("login");
