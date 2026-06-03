@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a2540"/>
+      <stop offset="0.45" stop-color="#16486f"/>
+      <stop offset="0.7" stop-color="#3a86c8"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e6ca4"/>
+      <stop offset="1" stop-color="#0d3253"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9b0"/>
+      <stop offset="0.6" stop-color="#e9b949"/>
+      <stop offset="1" stop-color="#e9b949" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <circle cx="1380" cy="430" r="220" fill="url(#sun)"/>
+  <circle cx="1380" cy="430" r="90" fill="#ffe9b0"/>
+  <rect y="700" width="1920" height="380" fill="url(#sea)"/>
+  <!-- sun reflection -->
+  <rect x="1340" y="700" width="80" height="380" fill="#ffe9b0" opacity="0.18"/>
+  <!-- waves -->
+  <path d="M0 720 q120 -28 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 v60 H0 z" fill="#3a86c8" opacity="0.35"/>
+  <path d="M0 770 q160 -26 320 0 t320 0 t320 0 t320 0 t320 0 t320 0 v40 H0 z" fill="#2e6ca4" opacity="0.4"/>
+  <!-- yacht silhouette -->
+  <g transform="translate(620 590)">
+    <path d="M0 110 h560 l-90 90 H120 z" fill="#0a2540"/>
+    <path d="M70 60 h360 v50 H70 z" fill="#0a2540"/>
+    <path d="M120 20 h220 l40 40 H120 z" fill="#0a2540"/>
+    <rect x="250" y="-60" width="10" height="80" fill="#0a2540"/>
+  </g>
+  <text x="960" y="980" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="40" fill="#ffffff" opacity="0.55" letter-spacing="6">PARDO 43 — HERO GÖRSELİ / HERO IMAGE</text>
+</svg>

@@ -1,0 +1,10 @@
+# Yerel Claude Code ayarları (kişiye/makineye özel)
+.claude/settings.local.json
+
+# Bağımlılıklar
+node_modules/
+
+# İşletim sistemi dosyaları
+Thumbs.db
+desktop.ini
+.DS_Store

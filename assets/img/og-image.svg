@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a2540"/><stop offset="0.6" stop-color="#16486f"/><stop offset="1" stop-color="#3a86c8"/></linearGradient>
+    <linearGradient id="ogsea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e6ca4"/><stop offset="1" stop-color="#0d3253"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogsky)"/>
+  <circle cx="930" cy="220" r="70" fill="#ffe9b0"/>
+  <rect y="430" width="1200" height="200" fill="url(#ogsea)"/>
+  <path d="M0 440 q100 -20 200 0 t200 0 t200 0 t200 0 t200 0 t200 0 v40 H0 z" fill="#3a86c8" opacity="0.4"/>
+  <g transform="translate(420 360)">
+    <path d="M0 70 h340 l-55 55 H70 z" fill="#0a2540"/>
+    <path d="M45 35 h220 v35 H45 z" fill="#0a2540"/>
+    <path d="M80 8 h130 l25 27 H80 z" fill="#0a2540"/>
+  </g>
+  <text x="600" y="150" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="76" font-weight="700" fill="#ffffff" letter-spacing="10">PARDO 43</text>
+  <text x="600" y="210" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#e9b949" letter-spacing="6">LÜKS YAT KİRALAMA / LUXURY YACHT CHARTER</text>
+</svg>

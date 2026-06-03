@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123b63"/>
+      <stop offset="1" stop-color="#0a2540"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <!-- waves -->
+  <path d="M6 46 q8 -6 16 0 t16 0 t16 0 v8 q-8 6 -16 0 t-16 0 t-16 0 z" fill="#2e6ca4" opacity="0.6"/>
+  <path d="M6 50 q8 -6 16 0 t16 0 t16 0 v6 H6 z" fill="#3a86c8" opacity="0.8"/>
+  <!-- hull -->
+  <path d="M14 40 h36 l-6 8 H20 z" fill="#f4f6f8"/>
+  <!-- sail -->
+  <path d="M32 10 l10 24 H32 z" fill="#e9b949"/>
+  <path d="M30 12 l-8 22 h8 z" fill="#f4f6f8"/>
+  <rect x="31" y="10" width="2" height="26" fill="#0a2540"/>
+</svg>

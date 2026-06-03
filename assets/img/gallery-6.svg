@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a2540"/><stop offset="1" stop-color="#3a86c8"/></linearGradient>
+    <linearGradient id="sea6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e6ca4"/><stop offset="1" stop-color="#0d3253"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky6)"/>
+  <circle cx="620" cy="130" r="48" fill="#ffe9b0"/>
+  <rect y="340" width="800" height="260" fill="url(#sea6)"/>
+  <path d="M0 350 q80 -20 160 0 t160 0 t160 0 t160 0 t160 0 v40 H0 z" fill="#3a86c8" opacity="0.4"/>
+  <path d="M0 400 q100 -18 200 0 t200 0 t200 0 t200 0 v40 H0 z" fill="#2e6ca4" opacity="0.5"/>
+  <!-- yacht with wake -->
+  <g transform="translate(180 280)">
+    <path d="M0 80 h360 l-58 58 H74 z" fill="#f4f6f8"/>
+    <path d="M50 42 h230 v38 H50 z" fill="#e9eef3"/>
+    <path d="M90 12 h140 l26 28 H90 z" fill="#dbe4ec"/>
+    <path d="M330 100 q120 30 240 18 q-130 36 -240 4 z" fill="#ffffff" opacity="0.5"/>
+  </g>
+  <text x="400" y="555" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.9" letter-spacing="2">Denizde / At Sea</text>
+</svg>

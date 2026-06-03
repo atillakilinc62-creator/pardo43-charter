@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="int3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3b4d"/><stop offset="1" stop-color="#16222e"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#int3)"/>
+  <!-- sofa -->
+  <rect x="120" y="320" width="560" height="160" rx="18" fill="#e9dcc4"/>
+  <rect x="120" y="280" width="560" height="70" rx="18" fill="#d9c4a3"/>
+  <rect x="170" y="300" width="110" height="60" rx="10" fill="#c9a86a"/>
+  <rect x="345" y="300" width="110" height="60" rx="10" fill="#c9a86a"/>
+  <rect x="520" y="300" width="110" height="60" rx="10" fill="#c9a86a"/>
+  <!-- window -->
+  <rect x="200" y="120" width="400" height="120" rx="60" fill="#3a86c8" opacity="0.8"/>
+  <text x="400" y="555" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.9" letter-spacing="2">İç Mekan / Interior</text>
+</svg>

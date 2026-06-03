@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16486f"/><stop offset="1" stop-color="#3a86c8"/></linearGradient>
+    <linearGradient id="sea1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e6ca4"/><stop offset="1" stop-color="#0d3253"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky1)"/>
+  <circle cx="610" cy="160" r="50" fill="#ffe9b0"/>
+  <rect y="360" width="800" height="240" fill="url(#sea1)"/>
+  <path d="M0 370 q80 -18 160 0 t160 0 t160 0 t160 0 t160 0 v40 H0 z" fill="#3a86c8" opacity="0.4"/>
+  <g transform="translate(230 300)">
+    <path d="M0 70 h340 l-55 55 H70 z" fill="#0a2540"/>
+    <path d="M45 35 h220 v35 H45 z" fill="#0a2540"/>
+    <path d="M80 8 h130 l25 27 H80 z" fill="#0a2540"/>
+  </g>
+  <text x="400" y="540" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.85" letter-spacing="2">Genel Görünüm / Exterior</text>
+</svg>

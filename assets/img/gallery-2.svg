@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d3253"/><stop offset="1" stop-color="#2e6ca4"/></linearGradient>
+    <linearGradient id="sea2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a86c8"/><stop offset="1" stop-color="#16486f"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky2)"/>
+  <rect y="330" width="800" height="270" fill="url(#sea2)"/>
+  <!-- deck planks -->
+  <g transform="translate(120 360)">
+    <rect width="560" height="200" rx="10" fill="#d9c4a3"/>
+    <g stroke="#bda77f" stroke-width="3">
+      <line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="80" x2="560" y2="80"/>
+      <line x1="0" y1="120" x2="560" y2="120"/><line x1="0" y1="160" x2="560" y2="160"/>
+    </g>
+    <rect x="60" y="30" width="120" height="60" rx="8" fill="#f4f6f8"/>
+    <rect x="380" y="30" width="120" height="60" rx="8" fill="#f4f6f8"/>
+  </g>
+  <circle cx="640" cy="120" r="44" fill="#ffe9b0"/>
+  <text x="400" y="555" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.9" letter-spacing="2">Güverte / Deck</text>
+</svg>

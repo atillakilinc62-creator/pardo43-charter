@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pardo 43 — Lüks Yat Kiralama / Luxury Yacht Charter</title>
+  <meta name="description" content="Pardo 43 ile unutulmaz bir deniz deneyimi. Günlük, gün batımı ve haftalık yat kiralama. Rezervasyon için WhatsApp'tan ulaşın. / Charter the Pardo 43 for an unforgettable day at sea." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pardo 43 — Lüks Yat Kiralama / Luxury Yacht Charter" />
+  <meta property="og:description" content="Pardo 43 ile unutulmaz bir deniz deneyimi. Rezervasyon için WhatsApp'tan ulaşın." />
+  <meta property="og:image" content="assets/img/og-image.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#hero" aria-label="Pardo 43">
+        <span class="brand-mark">⚓</span> PARDO&nbsp;43
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Ana menü">
+        <a href="#about" data-i18n="nav.boat">Tekne</a>
+        <a href="#gallery" data-i18n="nav.gallery">Galeri</a>
+        <a href="#specs" data-i18n="nav.specs">Özellikler</a>
+        <a href="#pricing" data-i18n="nav.pricing">Fiyatlar</a>
+        <a href="#contact" data-i18n="nav.contact">İletişim</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Dili değiştir / Switch language">EN</button>
+        <a class="btn btn-wa btn-sm js-whatsapp" href="#contact" data-i18n="nav.reserve">Rezervasyon</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Menü" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">LÜKS YAT KİRALAMA</p>
+        <h1 data-i18n="hero.title">Pardo 43 ile Eşsiz Bir Deniz Deneyimi</h1>
+        <p class="hero-sub" data-i18n="hero.subtitle">İtalyan tasarımı, zarif hatları ve geniş güvertesiyle Pardo 43; mavi yolculuklar, gün batımı turları ve özel günler için sizi bekliyor.</p>
+        <div class="hero-cta">
+          <a class="btn btn-wa js-whatsapp" href="#contact" data-i18n="hero.cta1">WhatsApp'tan Rezervasyon</a>
+          <a class="btn btn-ghost" href="#about" data-i18n="hero.cta2">Tekneyi Keşfet</a>
+        </div>
+      </div>
+      <a href="#about" class="scroll-hint" aria-hidden="true">⌄</a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag" data-i18n="about.tag">TEKNE</span>
+          <h2 data-i18n="about.title">Pardo 43</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="lead" data-i18n="about.lead">Pardo 43, Cantiere del Pardo imzasını taşıyan, walkaround konseptiyle öne çıkan bir lüks day-cruiser. Sportif performansı konforla birleştirir.</p>
+            <p data-i18n="about.p1">Geniş kıç güvertesi, kapalı salonu ve alt kattaki kabinleriyle hem gün boyu denizin tadını çıkarmak hem de konaklamak için idealdir. Sessiz seyir, ferah yaşam alanları ve şık iç tasarım ön plandadır.</p>
+          </div>
+          <ul class="badges reveal">
+            <li><span class="badge-num">12</span><span class="badge-label" data-i18n="about.badge1">Gündüz Misafir</span></li>
+            <li><span class="badge-num">38<small>kn</small></span><span class="badge-label" data-i18n="about.badge2">Maksimum Hız</span></li>
+            <li><span class="badge-num">2</span><span class="badge-label" data-i18n="about.badge3">Kabin</span></li>
+            <li><span class="badge-num">★</span><span class="badge-label" data-i18n="about.badge4">Profesyonel Kaptan</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag" data-i18n="gallery.tag">GALERİ</span>
+          <h2 data-i18n="gallery.title">Fotoğraf Galerisi</h2>
+          <p class="section-sub" data-i18n="gallery.subtitle">Tekneden kareler. Görsele tıklayarak büyütebilirsiniz.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-1.svg" alt="Genel Görünüm" loading="lazy" /><figcaption data-i18n="gallery.cap1">Genel Görünüm</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-2.svg" alt="Güverte" loading="lazy" /><figcaption data-i18n="gallery.cap2">Güverte</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-3.svg" alt="İç Mekan" loading="lazy" /><figcaption data-i18n="gallery.cap3">İç Mekan</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-4.svg" alt="Kabin" loading="lazy" /><figcaption data-i18n="gallery.cap4">Kabin</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-5.svg" alt="Güneşlenme Alanı" loading="lazy" /><figcaption data-i18n="gallery.cap5">Güneşlenme Alanı</figcaption></figure>
+          <figure class="gallery-item reveal"><img src="assets/img/gallery-6.svg" alt="Denizde" loading="lazy" /><figcaption data-i18n="gallery.cap6">Denizde</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPECS ============ -->
+    <section id="specs" class="section specs">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag" data-i18n="specs.tag">TEKNİK</span>
+          <h2 data-i18n="specs.title">Teknik Özellikler</h2>
+          <p class="section-sub" data-i18n="specs.subtitle">Aşağıdaki değerler örnek amaçlıdır; lütfen kendi teknenizin bilgileriyle güncelleyin.</p>
+        </div>
+        <div class="specs-grid reveal">
+          <div class="spec"><span class="spec-label" data-i18n="specs.brand">Marka / Model</span><span class="spec-val">Pardo 43</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.loa">Boy (LOA)</span><span class="spec-val">13.40 m</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.beam">En (Beam)</span><span class="spec-val">4.20 m</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.engine">Motorlar</span><span class="spec-val">2 × Volvo Penta IPS</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.topspeed">Maksimum Hız</span><span class="spec-val" data-i18n="specs.topspeed.v">~38 knot</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.cruise">Seyir Hızı</span><span class="spec-val" data-i18n="specs.cruise.v">~28 knot</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.fuel">Yakıt Kapasitesi</span><span class="spec-val">~1000 L</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.cabins">Kabin</span><span class="spec-val">2</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.berths">Yatak</span><span class="spec-val">4</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.daycap">Gündüz Kapasitesi</span><span class="spec-val" data-i18n="specs.daycap.v">12 kişi</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.year">Yıl</span><span class="spec-val">2022</span></div>
+          <div class="spec"><span class="spec-label" data-i18n="specs.flag">Bayrak / Liman</span><span class="spec-val">Türkiye</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features" class="section features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag" data-i18n="features.tag">DAHİL OLANLAR</span>
+          <h2 data-i18n="features.title">Kiralamaya Dahil</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature reveal"><div class="feature-ic">🧭</div><h3 data-i18n="features.f1.t">Profesyonel Kaptan</h3><p data-i18n="features.f1.d">Deneyimli kaptanımız tüm gün sizinle.</p></div>
+          <div class="feature reveal"><div class="feature-ic">⛽</div><h3 data-i18n="features.f2.t">Yakıt (anlaşmaya göre)</h3><p data-i18n="features.f2.d">Rota ve süreye göre yakıt seçenekleri.</p></div>
+          <div class="feature reveal"><div class="feature-ic">🦺</div><h3 data-i18n="features.f3.t">Güvenlik Ekipmanı</h3><p data-i18n="features.f3.d">Can yelekleri ve tam güvenlik donanımı.</p></div>
+          <div class="feature reveal"><div class="feature-ic">🎵</div><h3 data-i18n="features.f4.t">Müzik & Ses Sistemi</h3><p data-i18n="features.f4.d">Bluetooth bağlantılı premium ses sistemi.</p></div>
+          <div class="feature reveal"><div class="feature-ic">🤿</div><h3 data-i18n="features.f5.t">Yüzme & Şnorkel</h3><p data-i18n="features.f5.d">Denize girmek için ekipman ve merdiven.</p></div>
+          <div class="feature reveal"><div class="feature-ic">🧊</div><h3 data-i18n="features.f6.t">Soğuk İçecek & Buz</h3><p data-i18n="features.f6.d">Buzdolabı ve soğutucu standart.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="pricing" class="section pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tag" data-i18n="pricing.tag">FİYATLAR</span>
+          <h2 data-i18n="pricing.title">Kiralama Seçenekleri</h2>
+          <p class="section-sub" data-i18n="pricing.subtitle">Net fiyat için tarih ve kişi sayısıyla bize WhatsApp'tan yazın.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <h3 data-i18n="pricing.c1.t">Gün Batımı Turu</h3>
+            <p class="price"><span data-i18n="pricing.onrequest">Talep Üzerine</span></p>
+            <p class="price-per" data-i18n="pricing.c1.per">~3 saat</p>
+            <ul>
+              <li data-i18n="pricing.c1.l1">Akşam saatleri</li>
+              <li data-i18n="pricing.c1.l2">Kaptan dahil</li>
+              <li data-i18n="pricing.c1.l3">Romantik rota</li>
+            </ul>
+            <a class="btn btn-wa js-whatsapp" href="#contact" data-i18n="pricing.cta">Teklif Al</a>
+          </div>
+          <div class="price-card featured reveal">
+            <span class="ribbon" data-i18n="pricing.popular">En Popüler</span>
+            <h3 data-i18n="pricing.c2.t">Günlük Tur</h3>
+            <p class="price"><span data-i18n="pricing.onrequest">Talep Üzerine</span></p>
+            <p class="price-per" data-i18n="pricing.c2.per">~8 saat / gün</p>
+            <ul>
+              <li data-i18n="pricing.c2.l1">Tam gün deniz keyfi</li>
+              <li data-i18n="pricing.c2.l2">Koylarda yüzme molası</li>
+              <li data-i18n="pricing.c2.l3">Kaptan & güvenlik dahil</li>
+            </ul>
+            <a class="btn btn-wa js-whatsapp" href="#contact" data-i18n="pricing.cta">Teklif Al</a>
+          </div>
+          <div class="price-card reveal">
+            <h3 data-i18n="pricing.c3.t">Haftalık Kiralama</h3>
+            <p class="price"><span data-i18n="pricing.onrequest">Talep Üzerine</span></p>
+            <p class="price-per" data-i18n="pricing.c3.per">3+ gün</p>
+            <ul>
+              <li data-i18n="pricing.c3.l1">Mavi yolculuk planı</li>
+              <li data-i18n="pricing.c3.l2">Esnek rota</li>
+              <li data-i18n="pricing.c3.l3">Özel fiyat avantajı</li>
+            </ul>
+            <a class="btn btn-wa js-whatsapp" href="#contact" data-i18n="pricing.cta">Teklif Al</a>
+          </div>
+        </div>
+        <p class="pricing-note reveal" data-i18n="pricing.note">* Fiyatlar sezona, rotaya ve süreye göre değişir. Kesin teklif için lütfen iletişime geçin.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <span class="tag" data-i18n="contact.tag">İLETİŞİM</span>
+          <h2 data-i18n="contact.title">Rezervasyon & İletişim</h2>
+          <p class="lead" data-i18n="contact.lead">Müsaitlik ve fiyat için en hızlı yol WhatsApp. Tarihinizi ve kişi sayınızı yazın, hemen dönüş yapalım.</p>
+          <a class="btn btn-wa btn-lg js-whatsapp" href="#" data-i18n="contact.waBtn">WhatsApp'tan Yazın</a>
+          <ul class="contact-list">
+            <li><span class="ci-label" data-i18n="contact.phoneLabel">Telefon</span><a href="tel:+905555555555" class="js-phone">+90 555 555 55 55</a></li>
+            <li><span class="ci-label" data-i18n="contact.locationLabel">Lokasyon</span><span data-i18n="contact.location">Bodrum / Göcek, Türkiye</span></li>
+            <li><span class="ci-label" data-i18n="contact.hoursLabel">Saatler</span><span data-i18n="contact.hours">Her gün 08:00 – 22:00</span></li>
+          </ul>
+        </div>
+        <div class="contact-map reveal">
+          <iframe
+            title="Harita / Map"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=27.2%2C36.9%2C29.3%2C37.2&amp;layer=mapnik"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand footer-brand"><span class="brand-mark">⚓</span> PARDO&nbsp;43</div>
+      <p class="footer-tag" data-i18n="footer.tagline">Lüks yat kiralama — unutulmaz deniz anıları.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="js-instagram">Instagram</a>
+        <a href="#contact" data-i18n="nav.contact">İletişim</a>
+        <a href="#hero" data-i18n="footer.top">Başa Dön</a>
+      </div>
+      <p class="footer-rights"><span data-i18n="footer.rights">© 2026 Pardo 43 Charter. Tüm hakları saklıdır.</span></p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float js-whatsapp" href="#" aria-label="WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.3 4 14.9c0 2.3.7 4.5 1.9 6.4L4 29l7-1.8c1.8 1 3.9 1.5 6 1.5 6.6 0 12-5.3 12-11.9C29 8.3 23.6 3 16 3zm0 21.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.5C5.4 9.6 10.2 5 16 5s10.6 4.6 10.6 9.9S21.8 24.6 16 24.6zm5.8-7.4c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Kapat / Close">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Önceki / Previous">‹</button>
+    <img class="lb-img" id="lbImg" src="" alt="" />
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Sonraki / Next">›</button>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
