@@ -1,6 +1,12 @@
+// ---- Supabase ----
+// anon key herkese açıktır (frontend için tasarlanmıştır), gizli değildir.
+const SUPABASE_URL = "https://pdayfmklodldezpqkkzf.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkYXlmbWtsb2RsZGV6cHFra3pmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDU0MzcsImV4cCI6MjA5NjA4MTQzN30.hoKC_be5uTmnB3X0uqlBrjP13nZ7DPFotYawCGprzN0";
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 // ---- Durum (state) ----
-const STORAGE_KEY = "todos";
-let todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let todos = [];
 let filter = "all"; // all | active | done
 
 // ---- DOM ----
@@ -14,21 +20,42 @@ const clearBtn = document.getElementById("clear-done");
 const dateEl = document.getElementById("date");
 
 // ---- Yardımcılar ----
-const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-
 function getFiltered() {
   let result;
   if (filter === "active") result = todos.filter((t) => !t.done);
   else if (filter === "done") result = todos.filter((t) => t.done);
   else result = todos.slice();
 
-  // Yapılacağı tarihe göre eskiden yeniye sırala (tarihsizler en sona)
+  // Yapılacağı tarihe göre eskiden yeniye sırala (tarihsizler en sona,
+  // kendi aralarında en son eklenen üstte)
   return result.sort((a, b) => {
-    if (!a.due && !b.due) return b.id - a.id; // ikisi de tarihsiz → en son eklenen önce
+    if (!a.due && !b.due)
+      return (b.inserted_at || "").localeCompare(a.inserted_at || "");
     if (!a.due) return 1;
     if (!b.due) return -1;
     return a.due.localeCompare(b.due); // ISO tarih: küçük (erken) önce
   });
+}
+
+function formatDate(iso) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("tr-TR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function isOverdue(iso) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(iso + "T00:00:00") < today;
+}
+
+function isToday(iso) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(iso + "T00:00:00").getTime() === today.getTime();
 }
 
 // ---- Render ----
@@ -57,7 +84,7 @@ function render() {
     check.type = "checkbox";
     check.className = "todo-item__check";
     check.checked = todo.done;
-    check.addEventListener("change", () => toggle(todo.id));
+    check.addEventListener("change", () => toggle(todo.id, check.checked));
 
     const body = document.createElement("div");
     body.className = "todo-item__body";
@@ -95,61 +122,54 @@ function render() {
   countEl.textContent = `${remaining} görev kaldı`;
 }
 
-// ---- İşlemler ----
-function addTodo(text, due) {
-  todos.unshift({ id: Date.now(), text, due: due || null, done: false });
-  save();
+// ---- Veri işlemleri (Supabase REST) ----
+async function load() {
+  countEl.textContent = "Yükleniyor…";
+  const { data, error } = await db.from("todos").select("*");
+  if (error) return fail("Yüklenemedi", error);
+  todos = data || [];
   render();
 }
 
-function formatDate(iso) {
-  const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+async function addTodo(text, due) {
+  const { error } = await db.from("todos").insert({ text, due: due || null });
+  if (error) return fail("Eklenemedi", error);
+  await load();
 }
 
-function isOverdue(iso) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return new Date(iso + "T00:00:00") < today;
+async function toggle(id, done) {
+  const { error } = await db.from("todos").update({ done }).eq("id", id);
+  if (error) return fail("Güncellenemedi", error);
+  await load();
 }
 
-function isToday(iso) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return new Date(iso + "T00:00:00").getTime() === today.getTime();
+async function remove(id) {
+  const { error } = await db.from("todos").delete().eq("id", id);
+  if (error) return fail("Silinemedi", error);
+  await load();
 }
 
-function toggle(id) {
-  todos = todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t));
-  save();
-  render();
+async function clearDone() {
+  const { error } = await db.from("todos").delete().eq("done", true);
+  if (error) return fail("Silinemedi", error);
+  await load();
 }
 
-function remove(id) {
-  todos = todos.filter((t) => t.id !== id);
-  save();
-  render();
-}
-
-function clearDone() {
-  todos = todos.filter((t) => !t.done);
-  save();
-  render();
+function fail(msg, error) {
+  console.error(msg, error);
+  countEl.textContent = "⚠️ " + msg;
 }
 
 // ---- Olaylar ----
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = input.value.trim();
   if (!text) return;
-  addTodo(text, dateInput.value);
   input.value = "";
+  const due = dateInput.value;
   dateInput.value = "";
   input.focus();
+  await addTodo(text, due);
 });
 
 filters.addEventListener("click", (e) => {
@@ -173,4 +193,4 @@ dateEl.textContent = new Date().toLocaleDateString("tr-TR", {
 });
 
 // ---- Başlat ----
-render();
+load();
