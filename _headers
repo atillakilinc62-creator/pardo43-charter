@@ -1,3 +1,4 @@
+# Cloudflare Pages header kurallari
+# TODO sayfasi her zaman sunucuyla dogrulansin (eski surum tarayicida takili kalmasin)
 /todo/*
-  X-Cache-Test: applied
-  Cache-Control: no-store, max-age=0
+  Cache-Control: public, max-age=0, must-revalidate
