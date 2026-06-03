@@ -25,7 +25,7 @@
       "hero.title": "Pardo 43 ile Eşsiz Bir Deniz Deneyimi",
       "hero.subtitle": "İtalyan tasarımı, zarif hatları ve geniş güvertesiyle Pardo 43; mavi yolculuklar, gün batımı turları ve özel günler için sizi bekliyor.",
       "hero.cta1": "WhatsApp'tan Rezervasyon",
-      "hero.cta2": "Tekneyi Keşfet",
+      "hero.cta2": "Tekneleri Gör",
 
       "about.tag": "TEKNE",
       "about.title": "Pardo 43",
@@ -135,7 +135,7 @@
       "hero.title": "An Unforgettable Sea Experience aboard the Pardo 43",
       "hero.subtitle": "With Italian design, elegant lines and a spacious deck, the Pardo 43 awaits you for blue cruises, sunset tours and special occasions.",
       "hero.cta1": "Book via WhatsApp",
-      "hero.cta2": "Explore the Boat",
+      "hero.cta2": "See the Boats",
 
       "about.tag": "THE BOAT",
       "about.title": "Pardo 43",
