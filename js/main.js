@@ -14,9 +14,9 @@
      Örn. Türkiye 0555 123 45 67  ->  "905551234567"
      ----------------------------------------------------------- */
   var CONFIG = {
-    whatsappNumber: "905555555555",
-    phoneDisplay:   "+90 555 555 55 55",
-    phoneHref:      "+905555555555",
+    whatsappNumber: "905327626800",
+    phoneDisplay:   "+90 532 762 68 00",
+    phoneHref:      "+905327626800",
     instagram:      "https://instagram.com/"
   };
 
